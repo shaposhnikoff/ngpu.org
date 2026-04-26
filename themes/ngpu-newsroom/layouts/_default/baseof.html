@@ -1,0 +1,43 @@
+{{- $title := .Title | default site.Title -}}
+{{- if and .Title (ne .Title site.Title) -}}
+  {{- $title = printf "%s — %s" .Title site.Title -}}
+{{- end -}}
+<!doctype html>
+<html lang="{{ site.LanguageCode | default "uk" }}" data-theme="{{ site.Params.mode | default "light" }}" data-accent="{{ site.Params.accent | default "blue" }}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ $title }}</title>
+  {{ partial "head.html" . }}
+</head>
+<body>
+  {{ partial "masthead.html" . }}
+
+  <main>
+    {{ block "main" . }}{{ end }}
+  </main>
+
+  {{ partial "footer.html" . }}
+
+  <script>
+    // Theme + accent persistence (overrides site defaults)
+    (function() {
+      var t = localStorage.getItem("ngpu-theme");
+      var a = localStorage.getItem("ngpu-accent");
+      if (t) document.documentElement.setAttribute("data-theme", t);
+      if (a) document.documentElement.setAttribute("data-accent", a);
+      window.ngpuSetTheme = function(v) {
+        document.documentElement.setAttribute("data-theme", v);
+        localStorage.setItem("ngpu-theme", v);
+        document.querySelectorAll("[data-theme-btn]").forEach(function(b){
+          b.classList.toggle("is-on", b.dataset.themeBtn === v);
+        });
+      };
+      window.ngpuSetAccent = function(v) {
+        document.documentElement.setAttribute("data-accent", v);
+        localStorage.setItem("ngpu-accent", v);
+      };
+    })();
+  </script>
+</body>
+</html>

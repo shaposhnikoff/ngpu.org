@@ -1,0 +1,46 @@
+{{- $today := now.Format "Monday, 2 January 2006" -}}
+{{- $weekdays := dict "Monday" "понеділок" "Tuesday" "вівторок" "Wednesday" "середа" "Thursday" "четвер" "Friday" "п'ятниця" "Saturday" "субота" "Sunday" "неділя" -}}
+{{- $months := dict "January" "січня" "February" "лютого" "March" "березня" "April" "квітня" "May" "травня" "June" "червня" "July" "липня" "August" "серпня" "September" "вересня" "October" "жовтня" "November" "листопада" "December" "грудня" -}}
+{{- $wdEn := now.Format "Monday" -}}
+{{- $monEn := now.Format "January" -}}
+{{- $wd := index $weekdays $wdEn -}}
+{{- $mo := index $months $monEn -}}
+{{- $dayNum := now.Format "2" -}}
+{{- $year := now.Format "2006" -}}
+
+<header class="masthead">
+  <div class="masthead__top">
+    <div class="left">
+      <span>{{ $wd }}, {{ $dayNum }} {{ $mo }} {{ $year }}</span>
+      <span class="sep">·</span>
+      <span>Київ</span>
+      <span class="sep">·</span>
+      <span>UA</span>
+    </div>
+    <div class="right">
+      {{ partial "theme-switch.html" . }}
+      <span class="sep">·</span>
+      <a href="/search/">Пошук</a>
+      <a href="/cabinet/">Кабінет члена</a>
+    </div>
+  </div>
+
+  <div class="masthead__name">
+    <a href="{{ "/" | relURL }}" style="text-decoration: none; color: inherit;">
+      <div class="ukr">{{ site.Title }}</div>
+    </a>
+    <div class="est">
+      Заснована {{ site.Params.established | default "1992" }}
+      <span class="sep">·</span> Член ФПУ
+      <span class="sep">·</span> {{ site.Params.members | default "174 000" }} членів
+      <span class="sep">·</span> {{ site.Params.regions | default "22" }} регіони
+    </div>
+  </div>
+
+  <nav class="masthead__nav">
+    {{- range site.Menus.main -}}
+      {{- $active := or ($.IsMenuCurrent "main" .) ($.HasMenuCurrent "main" .) -}}
+      <a href="{{ .URL }}"{{ if $active }} class="is-active"{{ end }}>{{ .Name }}</a>
+    {{- end -}}
+  </nav>
+</header>

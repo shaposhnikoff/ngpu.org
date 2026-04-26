@@ -1,0 +1,109 @@
+{{ define "main" }}
+{{- $p := . -}}
+
+<div class="breadcrumbs">
+  <div class="container">
+    <a href="{{ "/" | relURL }}">Головна</a>
+    {{- range .Ancestors.Reverse -}}
+      {{- if not .IsHome -}}
+        <span class="sep">/</span>
+        <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+      {{- end -}}
+    {{- end -}}
+    {{- with $p.Params.category }}
+      <span class="sep">/</span>
+      <span>{{ . }}</span>
+    {{- end -}}
+  </div>
+</div>
+
+<article>
+  <header class="article-header">
+    <div class="kicker is-accent">{{ $p.Params.category | default "Матеріал" }}{{ with $p.Params.feature }} · {{ . }}{{ end }}</div>
+    <h1>{{ $p.Title }}</h1>
+    {{- with $p.Params.lede }}
+      <p class="lede">{{ . | safeHTML }}</p>
+    {{- end }}
+    <div class="meta">
+      <span class="byline">{{ $p.Params.author | default "Прес-служба Укрнафтогазпрофспілки" }}</span>
+      <span style="color: var(--ink-4);">·</span>
+      <span class="dateline">{{ $p.Date.Format "2 January 2006" }} · {{ $p.Date.Format "15:04" }}</span>
+      <span style="color: var(--ink-4);">·</span>
+      <span class="dateline">{{ $p.ReadingTime }} хв читання</span>
+    </div>
+  </header>
+
+  {{- with $p.Params.photo }}
+  <figure class="hero-fig">
+    {{ partial "photo.html" (dict "src" . "label" ($p.Params.photo_caption | default $p.Title) "height" "520px") }}
+    <figcaption>
+      <span class="caption-text">{{ $p.Params.photo_caption | default $p.Title }}</span>
+      <span>{{ $p.Params.photo_credit | default "Фото · Прес-служба" }}</span>
+    </figcaption>
+  </figure>
+  {{- end }}
+
+  <div class="article-body-grid">
+    <aside class="left-rail">
+      <div>
+        <div class="kicker">Поділитися</div>
+        <div class="share">
+          <a href="https://t.me/share/url?url={{ $p.Permalink }}&text={{ $p.Title }}">Telegram ↗</a>
+          <a href="https://www.facebook.com/sharer/sharer.php?u={{ $p.Permalink }}">Facebook ↗</a>
+          <a href="https://twitter.com/intent/tweet?url={{ $p.Permalink }}&text={{ $p.Title }}">X / Twitter ↗</a>
+          <a href="#" onclick="navigator.clipboard.writeText(location.href);return false;">Скопіювати ↗</a>
+        </div>
+      </div>
+      {{- with $p.Params.tags }}
+      <div>
+        <div class="kicker">Теги</div>
+        <div class="tags">
+          {{- range . -}}
+            <span class="chip" style="font-size: 9px;">{{ . }}</span>
+          {{- end -}}
+        </div>
+      </div>
+      {{- end }}
+    </aside>
+
+    <div class="body body-text">
+      {{ $p.Content }}
+    </div>
+
+    {{- $related := first 4 (where (where site.RegularPages "Section" $p.Section) "Permalink" "ne" $p.Permalink) }}
+    {{- with $related }}
+    <aside class="right-rail">
+      <div class="kicker">Читайте також</div>
+      <ul>
+        {{- range . -}}
+          <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
+        {{- end -}}
+      </ul>
+    </aside>
+    {{- end }}
+  </div>
+</article>
+
+<div class="container"><hr class="rule-double"></div>
+
+{{- $more := first 3 (where (where site.RegularPages "Section" $p.Section) "Permalink" "ne" $p.Permalink) }}
+{{- if $more }}
+<section class="related">
+  <div class="container">
+    <h2 class="hl hl-3" style="margin-bottom: 22px;">Більше з рубрики «{{ $p.Params.category | default "Матеріали" }}»</h2>
+    <div class="grid">
+      {{- range $more }}
+      <article>
+        {{ partial "photo.html" (dict "src" .Params.photo "label" "Фото" "height" "180px") }}
+        <div class="dateline" style="margin: 14px 0 8px;">{{ .Date.Format "2 January 2006" }}</div>
+        <h4 class="hl hl-5" style="margin: 0; text-wrap: pretty;">
+          <a href="{{ .RelPermalink }}" style="color: inherit; text-decoration: none;">{{ .Title }}</a>
+        </h4>
+      </article>
+      {{- end }}
+    </div>
+  </div>
+</section>
+{{- end }}
+
+{{ end }}

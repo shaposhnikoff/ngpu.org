@@ -1,0 +1,12 @@
+{{- /* Photo placeholder partial. Args: src, label, ratio, height */ -}}
+{{- $src := .src -}}
+{{- $label := .label | default "Фото" -}}
+{{- $height := .height -}}
+{{- $ratio := .ratio | default "16/10" -}}
+<div class="photo {{ if not $src }}has-placeholder{{ end }}" style="{{ with $height }}height: {{ . }}; aspect-ratio: auto;{{ else }}aspect-ratio: {{ $ratio }};{{ end }}">
+  {{- if $src -}}
+    <img src="{{ $src | relURL }}" alt="{{ $label }}">
+  {{- else -}}
+    <span class="photo__label">{{ $label }}</span>
+  {{- end -}}
+</div>

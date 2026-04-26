@@ -1,0 +1,10 @@
+{{- $src := .Get "src" -}}
+{{- $caption := .Get "caption" -}}
+{{- $credit := .Get "credit" -}}
+<figure class="photo-fig">
+  {{ partial "photo.html" (dict "src" $src "label" ($caption | default "Фото") "ratio" "16/10") }}
+  <figcaption>
+    <span class="caption-text">{{ $caption }}</span>
+    <span>{{ $credit }}</span>
+  </figcaption>
+</figure>

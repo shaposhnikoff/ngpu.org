@@ -1,0 +1,126 @@
+{{ define "main" }}
+{{- $news := where site.RegularPages "Section" "news" -}}
+{{- $featured := where $news ".Params.featured" true -}}
+{{- $lead := index $featured 0 -}}
+{{- if not $lead -}}{{ $lead = index $news 0 }}{{- end -}}
+{{- $rest := first 6 ($news | symdiff (slice $lead)) -}}
+{{- $breaking := index (where $news ".Params.breaking" true) 0 -}}
+
+{{- with $breaking }}
+<div class="breaking-strip">
+  <span class="chip is-red">Терміново</span>
+  <span class="text">{{ .Title }}</span>
+  <span class="meta">оновлено {{ .Date.Format "15:04" }}</span>
+</div>
+{{- end }}
+
+<section class="home-hero">
+  <div class="container">
+    <div class="grid">
+      <div class="lead">
+        {{- with $lead }}
+        <div class="kicker-row">
+          <div class="kicker is-accent">{{ .Params.category | default "Новини" }}</div>
+          <span class="vsep"></span>
+          <span class="dateline">{{ .Date.Format "2 January 2006" }} · {{ .ReadingTime }} хв читання</span>
+        </div>
+
+        <h1 class="hl hl-1" style="margin-bottom: 22px;">{{ .Title }}</h1>
+        <p class="lede" style="max-width: 720px; margin-bottom: 24px;">{{ .Params.lede | default (.Summary | plainify) | safeHTML }}</p>
+
+        {{ partial "photo.html" (dict "src" .Params.photo "label" (printf "Фото · %s" .Title) "height" "360px") }}
+
+        <div class="lead-meta">
+          <span class="byline">{{ .Params.author | default "Прес-служба" }}</span>
+          <a href="{{ .RelPermalink }}" class="read-more">Повний матеріал →</a>
+        </div>
+        {{- end }}
+      </div>
+
+      <aside>
+        <div class="most-read">
+          <div class="kicker">Найбільше читають</div>
+          <ol>
+            {{- range $i, $p := first 5 $news }}
+            <li>
+              <span class="n">{{ printf "%02d" (add $i 1) }}</span>
+              <a href="{{ $p.RelPermalink }}">{{ $p.Title }}</a>
+            </li>
+            {{- end }}
+          </ol>
+        </div>
+
+        <div class="cta-card">
+          <div class="kicker is-accent">Член профспілки?</div>
+          <h3 class="hl hl-5" style="margin-top: 10px; margin-bottom: 10px;">Гаряча лінія правової допомоги</h3>
+          <p class="body-sm" style="margin: 0 0 14px;">Безкоштовні консультації юристів та інспекторів з охорони праці — щодня з 9:00 до 18:00.</p>
+          <div class="number">{{ site.Params.hotline | default "0 800 50 17 92" }}</div>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<div class="container"><hr class="rule-thick"></div>
+
+<section class="news-feed">
+  <div class="container">
+    <div class="section-head">
+      <div class="left">
+        <h2 class="hl hl-3">Стрічка новин</h2>
+        <span class="dateline" style="color: var(--ink-4);">· оновлюється щодня</span>
+      </div>
+      <a href="/news/" class="read-more">Усі матеріали →</a>
+    </div>
+
+    <div class="feed-grid">
+      {{- range first 3 $rest -}}
+        {{ partial "card-news.html" . }}
+      {{- end -}}
+    </div>
+  </div>
+</section>
+
+<section class="stats-band">
+  <div class="grid">
+    <div>
+      <div class="kicker is-accent">Профспілка у цифрах</div>
+      <p class="body-sm" style="margin-top: 14px; margin-bottom: 0; color: var(--ink-3);">
+        Станом на {{ now.Format "2 January 2006" }} року. Дані Центральної ради.
+      </p>
+    </div>
+    <div>
+      <div class="n">{{ site.Params.members | default "174 312" }}</div>
+      <div class="dateline" style="margin-top: 8px;">членів профспілки</div>
+    </div>
+    <div>
+      <div class="n">{{ site.Params.primaries | default "412" }}</div>
+      <div class="dateline" style="margin-top: 8px;">первинних організацій</div>
+    </div>
+    <div>
+      <div class="n">{{ site.Params.regions | default "22" }}</div>
+      <div class="dateline" style="margin-top: 8px;">обласні організації</div>
+    </div>
+  </div>
+</section>
+
+{{- $docs := first 4 (where site.RegularPages "Section" "documents") -}}
+{{- if $docs }}
+<section class="documents">
+  <div class="container">
+    <hr class="rule-double">
+    <div class="section-head" style="padding: 22px 0 18px;">
+      <h2 class="hl hl-3">Документи та звіти</h2>
+      <a href="/documents/" class="read-more">Архів документів →</a>
+    </div>
+
+    <div class="grid">
+      {{- range $docs -}}
+        {{ partial "card-document.html" . }}
+      {{- end -}}
+    </div>
+  </div>
+</section>
+{{- end }}
+
+{{ end }}

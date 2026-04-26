@@ -1,0 +1,19 @@
+{{- /* Reusable card partial. Pass a Page via . */ -}}
+{{- $p := . -}}
+<article>
+  {{ partial "photo.html" (dict "src" $p.Params.photo "label" (printf "Фото · %s" ($p.Params.category | default "Новини")) "ratio" "16/10" "height" "210px") }}
+  <div class="meta-row">
+    <div class="kicker is-accent">{{ $p.Params.category | default "Новини" }}</div>
+    {{- with $p.Params.tag -}}<span class="chip" style="font-size: 9px;">{{ . }}</span>{{- end -}}
+  </div>
+  <h3 class="hl hl-4" style="margin-bottom: 12px; text-wrap: pretty;">
+    <a href="{{ $p.RelPermalink }}" style="color: inherit; text-decoration: none;">{{ $p.Title }}</a>
+  </h3>
+  <p class="body-sm" style="margin: 0 0 14px; color: var(--ink-3); text-wrap: pretty;">
+    {{ $p.Params.lede | default ($p.Summary | plainify | truncate 220) | safeHTML }}
+  </p>
+  <div class="foot">
+    <span class="dateline">{{ $p.Date.Format "2 January 2006" }}</span>
+    <a href="{{ $p.RelPermalink }}" class="read-more">Читати далі →</a>
+  </div>
+</article>

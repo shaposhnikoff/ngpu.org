@@ -1,0 +1,11 @@
+name = "NGPU Newsroom"
+license = "MIT"
+description = "Editorial newsroom theme for Ukrainian Oil & Gas Workers' Union (Укрнафтогазпрофспілка)"
+homepage = "https://ngpu.org.ua/"
+tags = ["news", "editorial", "ukrainian", "trade-union", "serif"]
+features = ["responsive", "dark-mode", "i18n-ready"]
+min_version = "0.110.0"
+
+[author]
+  name = "ngpu.org.ua"
+  homepage = "https://ngpu.org.ua/"

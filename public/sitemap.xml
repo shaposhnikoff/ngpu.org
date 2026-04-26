@@ -2,10 +2,55 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>//localhost:1313/</loc>
+    <loc>http://localhost:1313/documents/haluzeva-uhoda/</loc>
+    <lastmod>2026-03-19T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>//localhost:1313/categories/</loc>
+    <loc>http://localhost:1313/documents/statut/</loc>
+    <lastmod>2024-06-15T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>//localhost:1313/tags/</loc>
+    <loc>http://localhost:1313/tags/</loc>
+    <lastmod>2026-04-21T09:00:00+03:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/%D0%BA%D0%BE%D0%BD%D1%81%D1%83%D0%BB%D1%8C%D1%82%D0%B0%D1%86%D1%96%D1%97/</loc>
+    <lastmod>2026-04-21T09:00:00+03:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/news/labour-safety-consultations/</loc>
+    <lastmod>2026-04-21T09:00:00+03:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/news/</loc>
+    <lastmod>2026-04-21T09:00:00+03:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/%D0%BE%D1%85%D0%BE%D1%80%D0%BE%D0%BD%D0%B0-%D0%BF%D1%80%D0%B0%D1%86%D1%96/</loc>
+    <lastmod>2026-04-21T09:00:00+03:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/</loc>
+    <lastmod>2026-04-21T09:00:00+03:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/news/social-dialogue-q1-2026/</loc>
+    <lastmod>2026-03-19T14:22:00+02:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/%D0%B1%D0%B8%D0%B7%D0%BE%D0%B2/</loc>
+    <lastmod>2026-03-19T10:42:00+02:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/%D0%B7%D1%97%D0%B7%D0%B4/</loc>
+    <lastmod>2026-03-19T10:42:00+02:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/%D0%BB%D1%96%D0%B4%D0%B5%D1%80%D1%81%D1%82%D0%B2%D0%BE/</loc>
+    <lastmod>2026-03-19T10:42:00+02:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/news/byzov-fpu-candidacy/</loc>
+    <lastmod>2026-03-19T10:42:00+02:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/%D1%84%D0%BF%D1%83/</loc>
+    <lastmod>2026-03-19T10:42:00+02:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/documents/</loc>
+    <lastmod>2026-03-19T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/categories/</loc>
+  </url><url>
+    <loc>http://localhost:1313/contacts/</loc>
+  </url><url>
+    <loc>http://localhost:1313/about/</loc>
   </url>
 </urlset>

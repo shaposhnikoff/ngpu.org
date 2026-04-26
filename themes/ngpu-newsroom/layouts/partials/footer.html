@@ -1,0 +1,44 @@
+{{- $c := site.Params.contacts -}}
+<footer class="footer">
+  <div class="grid">
+    <div class="brand">
+      <div class="ukr">{{ site.Title }}</div>
+      <p>{{ site.Params.description | default "Профспілка працівників нафтової і газової промисловості України. Захищаємо трудові права з 1992 року." }}</p>
+    </div>
+    <div>
+      <h4>Розділи</h4>
+      <ul>
+        {{- range first 5 site.Menus.main -}}
+          <li><a href="{{ .URL }}">{{ .Name }}</a></li>
+        {{- end -}}
+      </ul>
+    </div>
+    <div>
+      <h4>Підприємства</h4>
+      <ul>
+        <li><a href="#">НАК «Нафтогаз України»</a></li>
+        <li><a href="#">АТ «Укрнафта»</a></li>
+        <li><a href="#">АТ «Укргазвидобування»</a></li>
+        <li><a href="#">АТ «Укртрансгаз»</a></li>
+        <li><a href="#">АТ «Укртранснафта»</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Контакти</h4>
+      <ul>
+        <li>{{ with $c }}{{ .address }}{{ else }}Київ, Майдан Незалежності, 2,&nbsp;к.&nbsp;617{{ end }}</li>
+        <li>{{ with $c }}{{ .phone1 }}{{ else }}+38 (044) 205-74-63{{ end }}</li>
+        <li>{{ with $c }}{{ .phone2 }}{{ else }}+38 (044) 205-74-60{{ end }}</li>
+        <li><a href="mailto:{{ with $c }}{{ .email }}{{ else }}info@ngpu.org.ua{{ end }}">{{ with $c }}{{ .email }}{{ else }}info@ngpu.org.ua{{ end }}</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="bottom">
+    <span>© 1992—{{ now.Format "2006" }} {{ site.Title }}. Усі права захищені.</span>
+    <span>
+      <a href="/privacy/" style="margin-right: 18px;">Політика конфіденційності</a>
+      <a href="/terms/">Умови використання</a>
+    </span>
+  </div>
+</footer>

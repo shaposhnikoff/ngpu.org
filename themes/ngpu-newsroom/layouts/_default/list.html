@@ -1,0 +1,125 @@
+{{ define "main" }}
+{{- $title := .Title -}}
+{{- $pages := .RegularPages -}}
+{{- $cats := slice -}}
+{{- range $pages -}}
+  {{- with .Params.category -}}{{- $cats = $cats | append . -}}{{- end -}}
+{{- end -}}
+{{- $cats = uniq $cats -}}
+{{- $featured := index (where $pages ".Params.featured" true) 0 -}}
+{{- if not $featured -}}{{ $featured = index $pages 0 }}{{- end -}}
+{{- $rest := $pages -}}
+{{- if $featured -}}{{- $rest = $pages | symdiff (slice $featured) -}}{{- end -}}
+
+<section class="section-masthead">
+  <div class="container">
+    <div class="row">
+      <div class="kicker is-accent">Розділ</div>
+      <span class="vsep"></span>
+      <span class="dateline">оновлюється щодня · {{ len $pages }} матеріал{{ if eq (len $pages) 1 }}{{ else }}и{{ end }} в&nbsp;архіві</span>
+    </div>
+    <h1 class="hl hl-1" style="margin: 14px 0 18px;">{{ $title }}</h1>
+    {{- with .Description -}}
+      <p class="lede" style="max-width: 780px; margin: 0;">{{ . }}</p>
+    {{- else -}}
+      <p class="lede" style="max-width: 780px; margin: 0;">Хроніка діяльності Укрнафтогазпрофспілки, рішення Центральної ради, звіти регіональних організацій та аналітичні матеріали наших експертів.</p>
+    {{- end -}}
+  </div>
+</section>
+
+<div class="container"><hr class="rule-thick"></div>
+
+{{- if $cats }}
+<section class="filters">
+  <div class="container">
+    <div class="row">
+      <a href="{{ .RelPermalink }}" class="cat is-on">Усі</a>
+      {{- range $cats }}
+        <a href="?category={{ . | urlize }}" class="cat">{{ . }}</a>
+      {{- end }}
+      <span class="sort">
+        <span class="dateline">Сортувати:</span>
+        <a href="?sort=date" class="is-on">Спочатку нові</a>
+        <span style="color: var(--ink-4);">·</span>
+        <a href="?sort=views">Найбільше переглядів</a>
+      </span>
+    </div>
+  </div>
+</section>
+{{- end }}
+
+{{- with $featured }}
+<section class="featured-spread">
+  <div class="container">
+    <div class="grid">
+      {{ partial "photo.html" (dict "src" .Params.photo "label" (printf "Фото · %s" .Title) "height" "420px") }}
+      <div>
+        <div class="kicker is-accent">{{ .Params.category | default "Матеріал" }} · {{ .Date.Format "2 January 2006" }}</div>
+        <h2 class="hl hl-2" style="margin: 18px 0 18px; text-wrap: balance;">
+          <a href="{{ .RelPermalink }}" style="color: inherit; text-decoration: none;">{{ .Title }}</a>
+        </h2>
+        <p class="lede" style="margin: 0 0 22px; text-wrap: pretty;">{{ .Params.lede | default (.Summary | plainify) | safeHTML }}</p>
+        <div style="display: flex; justify-content: space-between; padding-top: 18px; border-top: 1px solid var(--rule-hair);">
+          <span class="byline">{{ .Params.author | default "Прес-служба" }}</span>
+          <a href="{{ .RelPermalink }}" class="read-more">Повний матеріал →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{{- end }}
+
+<div class="container"><hr class="rule-double"></div>
+
+{{- $byYear := $rest.GroupByDate "2006" -}}
+{{- $latestYear := index $byYear 0 -}}
+
+<section class="archive">
+  <div class="container">
+    <div class="grid">
+      <div class="year">
+        {{- with $latestYear }}
+        <div class="y">{{ .Key }}</div>
+        <div class="dateline" style="margin-top: 10px;">архів року</div>
+        {{- end }}
+        <nav>
+          {{- range $byYear }}
+            <a href="?year={{ .Key }}" {{ if eq .Key $latestYear.Key }}class="is-on"{{ end }}>{{ .Key }} · {{ len .Pages }}</a>
+          {{- end }}
+        </nav>
+      </div>
+
+      <div class="articles">
+        {{- range $latestYear.Pages }}
+        <article>
+          <div class="kicker-row">
+            <div class="kicker is-accent">{{ .Params.category | default "Новини" }}</div>
+            <span class="vsep"></span>
+            <span class="dateline">{{ .Date.Format "2 January 2006" }}</span>
+          </div>
+          <h3 class="hl hl-4" style="margin: 0 0 10px; text-wrap: pretty;">
+            <a href="{{ .RelPermalink }}" class="title">{{ .Title }}</a>
+          </h3>
+          <p class="body-sm" style="margin: 0 0 14px; color: var(--ink-3); text-wrap: pretty;">
+            {{ .Params.lede | default (.Summary | plainify | truncate 200) | safeHTML }}
+          </p>
+          <a href="{{ .RelPermalink }}" class="read-more">Читати далі →</a>
+        </article>
+        {{- end }}
+      </div>
+    </div>
+  </div>
+</section>
+
+{{- $paginator := .Paginate $rest -}}
+{{- if gt $paginator.TotalPages 1 }}
+<section class="pagination">
+  {{- if $paginator.HasPrev -}}<a href="{{ $paginator.Prev.URL }}">←</a>{{- end -}}
+  {{- range $paginator.Pagers -}}
+    <a href="{{ .URL }}" {{ if eq .PageNumber $paginator.PageNumber }}class="is-on"{{ end }}>{{ .PageNumber }}</a>
+  {{- end -}}
+  {{- if $paginator.HasNext -}}<a href="{{ $paginator.Next.URL }}">→</a>{{- end -}}
+</section>
+{{- end }}
+
+{{ end }}

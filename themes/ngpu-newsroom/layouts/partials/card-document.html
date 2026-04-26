@@ -1,0 +1,11 @@
+{{- /* Document card partial. Pass a Page via . */ -}}
+{{- $p := . -}}
+<a href="{{ $p.Params.file | default $p.RelPermalink }}" class="doc">
+  <div class="kind">{{ $p.Params.doc_type | default "PDF" }}{{ with $p.Params.size }} · {{ . }}{{ end }}</div>
+  <h4 class="hl hl-6" style="margin: 10px 0 6px; text-wrap: pretty;">{{ $p.Title }}</h4>
+  <div style="font-family: var(--serif); font-size: 13px; color: var(--ink-3);">{{ $p.Params.subtitle | default $p.Summary }}</div>
+  <div class="foot">
+    <span>Завантажити</span>
+    <span>↓</span>
+  </div>
+</a>

@@ -1,18 +1,60 @@
-baseURL = 'https://ngpu.org/'
-languageCode = 'uk-UA'
-defaultContentLanguage = 'uk'
-title = 'Укрнафтогазпрофспілка'
-theme = 'mainroad'
-summaryLength = 36
+baseURL = "https://ngpu.org.ua/"
+languageCode = "uk-UA"
+title = "Укрнафтогазпрофспілка"
+theme = "ngpu-newsroom"
+paginate = 12
+enableRobotsTXT = true
 
-[Params]
-mainSections = ['posts']
-customCSS = ['css/ngpu-layout.css']
-dateformat = '02.01.2006'
-date_format = '02.01.2006'
+[params]
+  description = "Профспілка працівників нафтової і газової промисловості України"
+  established = 1992
+  members = "174 312"
+  primaries = 412
+  regions = 22
+  hotline = "0 800 50 17 92"
+  accent = "blue"
+  mode = "light"
 
-[Params.sidebar]
-home = false
-list = 'right'
-single = 'right'
-widgets = ['recent', 'categories', 'taglist']
+  [params.contacts]
+    address = "Київ, Майдан Незалежності, 2, к. 617"
+    phone1 = "+38 (044) 205-74-63"
+    phone2 = "+38 (044) 205-74-60"
+    email = "info@ngpu.org.ua"
+
+[menu]
+  [[menu.main]]
+    name = "Головна"
+    url = "/"
+    weight = 10
+  [[menu.main]]
+    name = "Новини"
+    url = "/news/"
+    weight = 20
+  [[menu.main]]
+    name = "Профспілка"
+    url = "/about/"
+    weight = 30
+  [[menu.main]]
+    name = "Охорона праці"
+    url = "/labour-safety/"
+    weight = 40
+  [[menu.main]]
+    name = "Соціальний діалог"
+    url = "/social-dialogue/"
+    weight = 50
+  [[menu.main]]
+    name = "Молодіжна політика"
+    url = "/youth/"
+    weight = 60
+  [[menu.main]]
+    name = "Документи"
+    url = "/documents/"
+    weight = 70
+  [[menu.main]]
+    name = "Контакти"
+    url = "/contacts/"
+    weight = 80
+
+[markup]
+  [markup.goldmark.renderer]
+    unsafe = true

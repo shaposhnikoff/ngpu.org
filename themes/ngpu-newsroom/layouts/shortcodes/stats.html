@@ -1,0 +1,22 @@
+<section class="stats-band" style="margin: 32px 0;">
+  <div class="grid">
+    <div>
+      <div class="kicker is-accent">Профспілка у цифрах</div>
+      <p class="body-sm" style="margin-top: 14px; color: var(--ink-3);">
+        Станом на {{ now.Format "2 January 2006" }} року.
+      </p>
+    </div>
+    <div>
+      <div class="n">{{ site.Params.members | default "174 312" }}</div>
+      <div class="dateline" style="margin-top: 8px;">членів профспілки</div>
+    </div>
+    <div>
+      <div class="n">{{ site.Params.primaries | default "412" }}</div>
+      <div class="dateline" style="margin-top: 8px;">первинних організацій</div>
+    </div>
+    <div>
+      <div class="n">{{ site.Params.regions | default "22" }}</div>
+      <div class="dateline" style="margin-top: 8px;">обласні організації</div>
+    </div>
+  </div>
+</section>

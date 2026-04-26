@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Охорона Праці on Укрнафтогазпрофспілка</title>
+    <link>http://localhost:1313/tags/%D0%BE%D1%85%D0%BE%D1%80%D0%BE%D0%BD%D0%B0-%D0%BF%D1%80%D0%B0%D1%86%D1%96/</link>
+    <description>Recent content in Охорона Праці on Укрнафтогазпрофспілка</description>
+    <generator>Hugo</generator>
+    <language>uk-UA</language>
+    <lastBuildDate>Tue, 21 Apr 2026 09:00:00 +0300</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/%D0%BE%D1%85%D0%BE%D1%80%D0%BE%D0%BD%D0%B0-%D0%BF%D1%80%D0%B0%D1%86%D1%96/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Консультації і роз&#39;яснення експертів з окремих питань охорони праці</title>
+      <link>http://localhost:1313/news/labour-safety-consultations/</link>
+      <pubDate>Tue, 21 Apr 2026 09:00:00 +0300</pubDate>
+      <guid>http://localhost:1313/news/labour-safety-consultations/</guid>
+      <description>&lt;p&gt;Запитання можна надсилати на електронну адресу &lt;code&gt;labour@ngpu.org.ua&lt;/code&gt;. Відповіді експертів публікуються у відкритому доступі.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

@@ -1,0 +1,8 @@
+<span class="theme-switch">
+  <button data-theme-btn="light" class="{{ if eq (site.Params.mode | default "light") "light" }}is-on{{ end }}" onclick="ngpuSetTheme('light')">Light</button>
+  <button data-theme-btn="dark" class="{{ if eq (site.Params.mode | default "light") "dark" }}is-on{{ end }}" onclick="ngpuSetTheme('dark')">Dark</button>
+</span>
+<span class="sep">·</span>
+<a href="?lang=en">EN</a>
+<span class="sep">/</span>
+<a href="/" style="color: var(--ink);">UA</a>

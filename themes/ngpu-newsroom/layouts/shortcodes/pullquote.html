@@ -1,0 +1,5 @@
+{{- $author := .Get "author" -}}
+<blockquote class="pullquote">
+  <div class="pq-text">{{ .Inner | markdownify }}</div>
+  {{- with $author -}}<div class="pq-attr">{{ . }}</div>{{- end -}}
+</blockquote>

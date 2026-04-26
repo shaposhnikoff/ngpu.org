@@ -1,0 +1,15 @@
+{{ define "main" }}
+<div class="breadcrumbs">
+  <div class="container">
+    <a href="{{ "/" | relURL }}">Головна</a>
+    <span class="sep">/</span>
+    <span>{{ .Title }}</span>
+  </div>
+</div>
+
+<div class="body-text" style="max-width: 920px; margin: 0 auto; padding: 56px var(--pad-x);">
+  <div class="kicker is-accent">{{ .Title }}</div>
+  <h1 class="hl hl-1" style="margin: 18px 0 28px;">{{ .Title }}</h1>
+  {{ .Content }}
+</div>
+{{ end }}

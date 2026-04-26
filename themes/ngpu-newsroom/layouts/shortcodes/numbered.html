@@ -1,0 +1,19 @@
+{{- /* numbered list. content lines: "Title :: Description" */ -}}
+<ol class="numbered">
+{{- range $i, $line := split (trim .Inner "\n") "\n" -}}
+  {{- $line = trim $line " " -}}
+  {{- if $line -}}
+    {{- $parts := split $line "::" -}}
+    {{- $t := trim (index $parts 0) " 0123456789.)" -}}
+    {{- $d := "" -}}
+    {{- if gt (len $parts) 1 -}}{{ $d = trim (index $parts 1) " " }}{{- end -}}
+    <li>
+      <span class="n">{{ printf "%02d" (add $i 1) }}</span>
+      <div>
+        <div class="t">{{ $t }}</div>
+        {{- with $d }}<div class="d">{{ . | markdownify }}</div>{{- end -}}
+      </div>
+    </li>
+  {{- end -}}
+{{- end -}}
+</ol>

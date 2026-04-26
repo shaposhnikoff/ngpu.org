@@ -79,7 +79,7 @@ theme = "ngpu-newsroom"
   members = "174 312"
   primaries = 412
   regions = 22
-  hotline = "0 800 50 17 92"
+  hotline = "+380503208035"
   accent = "blue"   # ochre | blue | red | forest | ink
   mode = "light"    # light | dark
 

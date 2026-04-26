@@ -1,1 +1,4 @@
-theme = "ananke"
+baseURL = 'https://ngpu.org/'
+languageCode = 'en-us'
+title = 'NGPU'
+theme = 'ananke'

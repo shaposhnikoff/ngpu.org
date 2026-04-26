@@ -1,10 +1,18 @@
 baseURL = 'https://ngpu.org/'
-languageCode = 'en-us'
-title = 'NGPU'
-theme = "mainroad"
+languageCode = 'uk-UA'
+defaultContentLanguage = 'uk'
+title = 'Укрнафтогазпрофспілка'
+theme = 'mainroad'
+summaryLength = 36
+
 [Params]
-  [Params.sidebar]
-    home = "right"
-    list = "right"
-    single = "right"
-    widgets = ["recent", "categories", "taglist"]
+mainSections = ['posts']
+customCSS = ['css/ngpu-layout.css']
+dateformat = '02.01.2006'
+date_format = '02.01.2006'
+
+[Params.sidebar]
+home = false
+list = 'right'
+single = 'right'
+widgets = ['recent', 'categories', 'taglist']

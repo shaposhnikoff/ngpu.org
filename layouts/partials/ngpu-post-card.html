@@ -1,0 +1,14 @@
+{{ $page := .page }}
+{{ $featured := .featured }}
+<article class="ngpu-news-card{{ if $featured }} ngpu-news-card-featured{{ end }}">
+  <h2>
+    <a href="{{ $page.RelPermalink }}">{{ $page.Title }}</a>
+  </h2>
+  <div class="ngpu-news-meta">
+    {{ $page.Date | time.Format ($page.Site.Params.date_format | default "02.01.2006") }}
+  </div>
+  <div class="ngpu-news-summary">
+    {{ $page.Summary }}
+  </div>
+  <a class="ngpu-read-more" href="{{ $page.RelPermalink }}">Читати далі</a>
+</article>

@@ -1,0 +1,31 @@
+{{ $nav := hugo.Data.ngpu_navigation.right }}
+{{ range $nav.groups }}
+  <section class="ngpu-panel ngpu-sidebar-panel">
+    <h2>{{ .title }}</h2>
+    <ul class="ngpu-tree-list">
+      {{ range .items }}
+        <li>
+          <a href="{{ .url | relURL }}">{{ .label }}</a>
+          {{ with .children }}
+            <ul>
+              {{ range . }}
+                <li><a href="{{ .url | relURL }}">{{ .label }}</a></li>
+              {{ end }}
+            </ul>
+          {{ end }}
+        </li>
+      {{ end }}
+    </ul>
+  </section>
+{{ end }}
+
+{{ with hugo.Data.ngpu_navigation.contacts }}
+  <section class="ngpu-panel ngpu-sidebar-panel ngpu-contacts-panel">
+    <h2>{{ .title }}</h2>
+    <address>
+      {{ range .lines }}
+        <span>{{ . }}</span>
+      {{ end }}
+    </address>
+  </section>
+{{ end }}

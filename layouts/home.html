@@ -1,0 +1,43 @@
+{{ define "header" }}
+  <header class="ngpu-header">
+    <div class="ngpu-shell">
+      <a class="ngpu-logo" href="{{ site.Home.RelPermalink }}">{{ site.Title }}</a>
+    </div>
+  </header>
+  <div class="ngpu-divider" aria-hidden="true"></div>
+{{ end }}
+
+{{ define "main" }}
+  {{ $mainSections := site.Params.mainSections | default (slice "posts") }}
+  {{ $posts := where site.RegularPages "Section" "in" $mainSections }}
+  <main class="ngpu-page-shell" role="main">
+    <aside class="ngpu-left-column" aria-label="Основна навігація">
+      {{ partial "ngpu-left-nav.html" . }}
+    </aside>
+
+    <section class="ngpu-content-column" aria-label="Новини">
+      {{ if .Content }}
+        <article class="ngpu-intro">
+          {{ .Content }}
+        </article>
+      {{ end }}
+
+      {{ if gt (len $posts) 0 }}
+        {{ range $index, $post := $posts }}
+          {{ partial "ngpu-post-card.html" (dict "page" $post "featured" (eq $index 0)) }}
+        {{ end }}
+      {{ else }}
+        <article class="ngpu-news-card ngpu-news-card-featured">
+          <h2>Новини скоро з’являться</h2>
+          <p>Матеріали сайту будуть додані у цьому розділі після публікації.</p>
+        </article>
+      {{ end }}
+    </section>
+
+    <aside class="ngpu-right-column" aria-label="Організації та контакти">
+      {{ partial "ngpu-right-sidebar.html" . }}
+    </aside>
+  </main>
+{{ end }}
+
+{{ define "sidebar" }}{{ end }}

@@ -1,4 +1,10 @@
 baseURL = 'https://ngpu.org/'
 languageCode = 'en-us'
 title = 'NGPU'
-theme = 'ananke'
+theme = "mainroad"
+[Params]
+  [Params.sidebar]
+    home = "right"
+    list = "right"
+    single = "right"
+    widgets = ["recent", "categories", "taglist"]

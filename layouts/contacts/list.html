@@ -1,0 +1,167 @@
+{{ define "main" }}
+{{- $p := . -}}
+
+<div class="breadcrumbs">
+  <div class="container">
+    <a href="{{ "/" | relURL }}">Головна</a>
+    <span class="sep">/</span>
+    <span>{{ $p.Title }}</span>
+  </div>
+</div>
+
+<section class="section-masthead">
+  <div class="container">
+    <div class="kicker is-accent">Апарат</div>
+    <h1 class="hl hl-1" style="margin: 14px 0 18px;">{{ $p.Title }}</h1>
+    <p class="lede" style="max-width: 780px; margin: 0;">{{ $p.Description }}</p>
+  </div>
+</section>
+
+<div class="container"><hr class="rule-thick"></div>
+
+<section class="contacts-page">
+  <div class="container">
+
+    {{/* ── Info block ──────────────────────────────────────── */}}
+    <div class="contacts-grid">
+
+      <div class="contacts-about">
+        <div class="kicker" style="margin-bottom: 18px;">Про організацію</div>
+        <p class="body-text">
+          Голова профспілки працівників нафтової і газової промисловості України —
+          <strong>Дмитришин Володимир Іванович</strong>.
+        </p>
+        <p class="body-text">
+          На 01.01.2024 р. профспілка налічує <strong>81 первинну профорганізацію</strong>,
+          на обліку в яких перебуває <strong>68&nbsp;875 спілчан</strong>.
+        </p>
+        <p class="body-text">
+          Укрнафтогазпрофспілка об'єднує 5 територіальних профспілкових організацій
+          (Полтавська, Львівська, Івано-Франківська обласні ради, Харківський обласний
+          комітет, Київська міська профспілкова організація) і 4 міжрегіональних
+          профспілкових організації («Укргазвидобування», ПАТ «Укрнафта»,
+          АТ «Укртранснафта», Рада голів профкомів АТ «Укртрансгаз»).
+        </p>
+      </div>
+
+      <div class="contacts-card">
+        <div class="kicker" style="margin-bottom: 18px;">Реквізити та адреса</div>
+
+        <div class="contacts-block">
+          <div class="contacts-block__label">Фактична адреса</div>
+          <div>01012, м.&nbsp;Київ, Майдан Незалежності,&nbsp;2</div>
+        </div>
+
+        <div class="contacts-block">
+          <div class="contacts-block__label">Поштова адреса</div>
+          <div>01001, м.&nbsp;Київ, а/с В-137</div>
+        </div>
+
+        <div class="contacts-block">
+          <div class="contacts-block__label">Телефони</div>
+          <div>
+            <a href="tel:+380442057463">+38 (044) 205-74-63</a><br>
+            <a href="tel:+380442057460">+38 (044) 205-74-60</a>
+          </div>
+        </div>
+
+        <div class="contacts-block">
+          <div class="contacts-block__label">Факс</div>
+          <div><a href="tel:+380442057463">+38 (044) 205-74-63</a></div>
+        </div>
+
+        <div class="contacts-block">
+          <div class="contacts-block__label">Email</div>
+          <div><a href="mailto:info@ngpu.org.ua">info@ngpu.org.ua</a></div>
+        </div>
+
+        <div class="contacts-block">
+          <div class="contacts-block__label">Сайт</div>
+          <div><a href="https://ngpu.org.ua" target="_blank" rel="noopener">ngpu.org.ua</a></div>
+        </div>
+      </div>
+
+    </div>
+
+    <hr class="rule-double" style="margin: 40px 0;">
+
+    {{/* ── Staff table ─────────────────────────────────────── */}}
+    <div class="kicker" style="margin-bottom: 24px;">Апарат Центральної ради Укрнафтогазпрофспілки</div>
+
+    <div class="staff-table-wrap">
+      <table class="staff-table">
+        <thead>
+          <tr>
+            <th>Кімн.</th>
+            <th>Прізвище, ім'я та по батькові</th>
+            <th>Посада</th>
+            <th>Внутр.</th>
+            <th>Робочий телефон</th>
+            <th>Email</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="room">617</td>
+            <td class="name">ДМИТРИШИН<br><span>Володимир Іванович</span></td>
+            <td>Голова Профспілки</td>
+            <td class="mono">7617</td>
+            <td><a href="tel:+380442057460">205-74-60</a></td>
+            <td><a href="mailto:dmytryshyn@ngpu.org.ua">dmytryshyn@ngpu.org.ua</a></td>
+          </tr>
+          <tr>
+            <td class="room">622</td>
+            <td class="name">УКРАЇНЕЦЬ<br><span>Сергій Якович</span></td>
+            <td>Заступник голови</td>
+            <td class="mono">7622</td>
+            <td><a href="tel:+380442057461">205-74-61</a></td>
+            <td><a href="mailto:ukrainets@ngpu.org.ua">ukrainets@ngpu.org.ua</a></td>
+          </tr>
+          <tr>
+            <td class="room">619</td>
+            <td class="name">ШАПОШНІКОВА<br><span>Олена Володимирівна</span></td>
+            <td>Головний бухгалтер</td>
+            <td class="mono">7619</td>
+            <td><a href="tel:+380442057465">205-74-65</a></td>
+            <td><a href="mailto:shaposhnikova@ngpu.org.ua">shaposhnikova@ngpu.org.ua</a></td>
+          </tr>
+          <tr>
+            <td class="room">621</td>
+            <td class="name">МОРОЗЕНКО<br><span>Валентина Гаврилівна</span></td>
+            <td>Головний фахівець з охорони праці і навколишнього середовища — головний технічний інспектор</td>
+            <td class="mono">7621</td>
+            <td><a href="tel:+380442057466">205-74-66</a></td>
+            <td><a href="mailto:morozenko@ngpu.org.ua">morozenko@ngpu.org.ua</a></td>
+          </tr>
+          <tr>
+            <td class="room">620</td>
+            <td class="name">КЛИМЕНКО<br><span>Володимир Володимирович</span></td>
+            <td>Головний фахівець з правових питань</td>
+            <td class="mono">7620</td>
+            <td><a href="tel:+380442057464">205-74-64</a></td>
+            <td><a href="mailto:klimenko@ngpu.org.ua">klimenko@ngpu.org.ua</a></td>
+          </tr>
+          <tr>
+            <td class="room">618</td>
+            <td class="name">САХНО<br><span>Лариса Іванівна</span></td>
+            <td>Головний фахівець з організаційної роботи, кадрового забезпечення і загальних питань</td>
+            <td class="mono">7618</td>
+            <td><a href="tel:+380442057463">205-74-63</a></td>
+            <td><a href="mailto:sahno@ngpu.org.ua">sahno@ngpu.org.ua</a></td>
+          </tr>
+          <tr>
+            <td class="room">620</td>
+            <td class="name">—</td>
+            <td>Головний фахівець з питань регулювання соціально-трудових відносин</td>
+            <td class="mono">7650</td>
+            <td><a href="tel:+380442057462">205-74-62</a></td>
+            <td>—</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+</section>
+
+{{ end }}

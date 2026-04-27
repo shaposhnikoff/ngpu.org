@@ -1,0 +1,30 @@
+{{ define "main" }}
+{{- $p := . -}}
+
+<div class="breadcrumbs">
+  <div class="container">
+    <a href="{{ "/" | relURL }}">Головна</a>
+    <span class="sep">/</span>
+    <span>{{ $p.Title }}</span>
+  </div>
+</div>
+
+<section class="section-masthead">
+  <div class="container">
+    <div class="kicker is-accent">Профспілка</div>
+    <h1 class="hl hl-1" style="margin: 14px 0 18px;">{{ $p.Title }}</h1>
+    {{- with $p.Description }}
+    <p class="lede" style="max-width: 780px; margin: 0;">{{ . }}</p>
+    {{- end }}
+  </div>
+</section>
+
+<section style="padding: 48px var(--pad-x) 96px;">
+  <div class="container">
+    <div style="max-width: 780px; font-family: var(--serif); font-size: 19px; line-height: 1.7; color: var(--ink-2);">
+      {{ $p.Content }}
+    </div>
+  </div>
+</section>
+
+{{ end }}

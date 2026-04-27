@@ -1,0 +1,222 @@
+{{ define "main" }}
+{{- $p := . -}}
+
+<div class="breadcrumbs">
+  <div class="container">
+    <a href="{{ "/" | relURL }}">Головна</a>
+    <span class="sep">/</span>
+    <span>{{ $p.Title }}</span>
+  </div>
+</div>
+
+<section class="section-masthead">
+  <div class="container">
+    <div class="kicker is-accent">Профспілка</div>
+    <h1 class="hl hl-1" style="margin: 14px 0 18px;">{{ $p.Title }}</h1>
+    <p class="lede" style="max-width: 780px; margin: 0;">{{ $p.Description }}</p>
+  </div>
+</section>
+
+<div class="container"><hr class="rule-thick"></div>
+
+{{/* ── Stats ──────────────────────────────────────────────── */}}
+<section class="about-stats">
+  <div class="grid">
+    <div class="item">
+      <div class="n">1992</div>
+      <div class="kicker" style="margin-top: 10px;">Рік заснування</div>
+      <p style="font-family: var(--serif); font-size: 15px; color: var(--ink-3); margin: 8px 0 0; line-height: 1.5;">
+        Профспілка створена у рік незалежності України
+      </p>
+    </div>
+    <div class="item">
+      <div class="n">81</div>
+      <div class="kicker" style="margin-top: 10px;">Первинних організацій</div>
+      <p style="font-family: var(--serif); font-size: 15px; color: var(--ink-3); margin: 8px 0 0; line-height: 1.5;">
+        Станом на 01.01.2024 р.
+      </p>
+    </div>
+    <div class="item">
+      <div class="n">68 875</div>
+      <div class="kicker" style="margin-top: 10px;">Спілчан</div>
+      <p style="font-family: var(--serif); font-size: 15px; color: var(--ink-3); margin: 8px 0 0; line-height: 1.5;">
+        На обліку в первинних організаціях
+      </p>
+    </div>
+    <div class="item">
+      <div class="n">9</div>
+      <div class="kicker" style="margin-top: 10px;">Регіональних структур</div>
+      <p style="font-family: var(--serif); font-size: 15px; color: var(--ink-3); margin: 8px 0 0; line-height: 1.5;">
+        5 територіальних та 4 міжрегіональних
+      </p>
+    </div>
+  </div>
+</section>
+
+<div class="container"><hr class="rule-double"></div>
+
+{{/* ── Mission ─────────────────────────────────────────────── */}}
+<section class="mission">
+  <div class="grid">
+    <div class="label">
+      <div class="kicker" style="margin-bottom: 16px;">Місія та цілі</div>
+      <p style="font-family: var(--serif); font-size: 17px; line-height: 1.6; color: var(--ink-2);">
+        Захист трудових і соціально-економічних прав та інтересів членів профспілки
+        у відносинах із роботодавцями та органами державної влади.
+      </p>
+      <p style="font-family: var(--serif); font-size: 17px; line-height: 1.6; color: var(--ink-2);">
+        Профспілка діє відповідно до Закону України «Про професійні спілки, їх права та гарантії діяльності»
+        та власного Статуту, затвердженого з'їздом.
+      </p>
+    </div>
+    <div class="text" style="font-family: var(--serif); font-size: 17px; line-height: 1.7; color: var(--ink-2);">
+      {{ $p.Content }}
+    </div>
+  </div>
+</section>
+
+<div class="container"><hr class="rule-double"></div>
+
+{{/* ── Activities ──────────────────────────────────────────── */}}
+<section style="padding: 16px var(--pad-x) 48px;">
+  <div class="kicker" style="margin-bottom: 28px;">Основні напрями роботи</div>
+  <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 0;">
+
+    <div style="padding: 24px 28px; border-top: 3px solid var(--accent); border-right: 1px solid var(--rule-hair);">
+      <div class="kicker is-accent" style="margin-bottom: 14px;">Колективні договори</div>
+      <p style="font-family: var(--serif); font-size: 16px; line-height: 1.6; color: var(--ink-2); margin: 0;">
+        Укладення та контроль виконання галузевої угоди і колективних договорів
+        на підприємствах нафтогазового комплексу.
+      </p>
+    </div>
+
+    <div style="padding: 24px 28px; border-top: 3px solid var(--accent); border-right: 1px solid var(--rule-hair);">
+      <div class="kicker is-accent" style="margin-bottom: 14px;">Охорона праці</div>
+      <p style="font-family: var(--serif); font-size: 16px; line-height: 1.6; color: var(--ink-2); margin: 0;">
+        Нагляд за дотриманням норм охорони праці, навчання технічних інспекторів,
+        розслідування нещасних випадків на виробництві.
+      </p>
+    </div>
+
+    <div style="padding: 24px 28px; border-top: 3px solid var(--accent); border-right: 1px solid var(--rule-hair);">
+      <div class="kicker is-accent" style="margin-bottom: 14px;">Соціальний діалог</div>
+      <p style="font-family: var(--serif); font-size: 16px; line-height: 1.6; color: var(--ink-2); margin: 0;">
+        Участь у тристоронніх переговорах, представництво інтересів працівників
+        у Національній службі посередництва і примирення.
+      </p>
+    </div>
+
+    <div style="padding: 24px 28px; border-top: 3px solid var(--accent);">
+      <div class="kicker is-accent" style="margin-bottom: 14px;">Молодіжна політика</div>
+      <p style="font-family: var(--serif); font-size: 16px; line-height: 1.6; color: var(--ink-2); margin: 0;">
+        Підтримка молодих працівників галузі, розвиток молодіжних рад
+        при первинних профорганізаціях.
+      </p>
+    </div>
+
+  </div>
+</section>
+
+<div class="container"><hr class="rule-double"></div>
+
+{{/* ── Structure ───────────────────────────────────────────── */}}
+<section style="padding: 16px var(--pad-x) 48px;">
+  <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 56px;">
+
+    <div>
+      <div class="kicker" style="margin-bottom: 24px;">Територіальні організації</div>
+      <ul style="list-style: none; padding: 0; margin: 0; border-top: 1px solid var(--rule);">
+        <li style="padding: 16px 0; border-bottom: 1px solid var(--rule-hair); font-family: var(--serif); font-size: 17px; color: var(--ink-2);">Полтавська обласна рада</li>
+        <li style="padding: 16px 0; border-bottom: 1px solid var(--rule-hair); font-family: var(--serif); font-size: 17px; color: var(--ink-2);">Львівська обласна рада</li>
+        <li style="padding: 16px 0; border-bottom: 1px solid var(--rule-hair); font-family: var(--serif); font-size: 17px; color: var(--ink-2);">Івано-Франківська обласна рада</li>
+        <li style="padding: 16px 0; border-bottom: 1px solid var(--rule-hair); font-family: var(--serif); font-size: 17px; color: var(--ink-2);">Харківський обласний комітет</li>
+        <li style="padding: 16px 0; border-bottom: 1px solid var(--rule-hair); font-family: var(--serif); font-size: 17px; color: var(--ink-2);">Київська міська профспілкова організація</li>
+      </ul>
+    </div>
+
+    <div>
+      <div class="kicker" style="margin-bottom: 24px;">Міжрегіональні організації</div>
+      <ul style="list-style: none; padding: 0; margin: 0; border-top: 1px solid var(--rule);">
+        <li style="padding: 16px 0; border-bottom: 1px solid var(--rule-hair); font-family: var(--serif); font-size: 17px; color: var(--ink-2);">ОПО «Укргазвидобування»</li>
+        <li style="padding: 16px 0; border-bottom: 1px solid var(--rule-hair); font-family: var(--serif); font-size: 17px; color: var(--ink-2);">ОПО ПАТ «Укрнафта»</li>
+        <li style="padding: 16px 0; border-bottom: 1px solid var(--rule-hair); font-family: var(--serif); font-size: 17px; color: var(--ink-2);">ОПО АТ «Укртранснафта»</li>
+        <li style="padding: 16px 0; border-bottom: 1px solid var(--rule-hair); font-family: var(--serif); font-size: 17px; color: var(--ink-2);">Рада голів профкомів АТ «Укртрансгаз»</li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+<div class="container"><hr class="rule-double"></div>
+
+{{/* ── Timeline ─────────────────────────────────────────────── */}}
+<section class="timeline">
+  <div class="kicker" style="margin-bottom: 28px;">Ключові дати</div>
+  <div class="grid">
+    <div class="item">
+      <div class="y">1992</div>
+      <div class="t">Заснування</div>
+      <p style="font-family: var(--serif); font-size: 15px; line-height: 1.5; color: var(--ink-3); margin: 0;">
+        Профспілку засновано у перший рік незалежності України.
+      </p>
+    </div>
+    <div class="item">
+      <div class="y">1996</div>
+      <div class="t">Галузева угода</div>
+      <p style="font-family: var(--serif); font-size: 15px; line-height: 1.5; color: var(--ink-3); margin: 0;">
+        Укладено першу галузеву угоду в нафтогазовій промисловості України.
+      </p>
+    </div>
+    <div class="item">
+      <div class="y">2000</div>
+      <div class="t">IndustriALL</div>
+      <p style="font-family: var(--serif); font-size: 15px; line-height: 1.5; color: var(--ink-3); margin: 0;">
+        Вступ до глобальної федерації IndustriALL Global Union.
+      </p>
+    </div>
+    <div class="item">
+      <div class="y">2014</div>
+      <div class="t">Реорганізація</div>
+      <p style="font-family: var(--serif); font-size: 15px; line-height: 1.5; color: var(--ink-3); margin: 0;">
+        Структурна перебудова у відповідь на зміни в нафтогазовому секторі.
+      </p>
+    </div>
+    <div class="item">
+      <div class="y">2022</div>
+      <div class="t">Стійкість</div>
+      <p style="font-family: var(--serif); font-size: 15px; line-height: 1.5; color: var(--ink-3); margin: 0;">
+        Профспілка продовжує роботу в умовах повномасштабного вторгнення.
+      </p>
+    </div>
+  </div>
+</section>
+
+<div class="container"><hr class="rule-double"></div>
+
+{{/* ── International ───────────────────────────────────────── */}}
+<section style="padding: 16px var(--pad-x) 64px;">
+  <div class="kicker" style="margin-bottom: 24px;">Міжнародна діяльність</div>
+  <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px; max-width: 860px;">
+
+    <div style="padding: 24px; border: 1px solid var(--rule-hair); background: var(--paper-2);">
+      <div class="kicker" style="margin-bottom: 12px;">IndustriALL Global Union</div>
+      <p style="font-family: var(--serif); font-size: 16px; line-height: 1.6; color: var(--ink-2); margin: 0;">
+        Глобальна федерація, що об'єднує понад 50 мільйонів працівників
+        у 140 країнах. Членство забезпечує доступ до міжнародної
+        солідарності та правової підтримки.
+      </p>
+    </div>
+
+    <div style="padding: 24px; border: 1px solid var(--rule-hair); background: var(--paper-2);">
+      <div class="kicker" style="margin-bottom: 12px;">Федерація профспілок України</div>
+      <p style="font-family: var(--serif); font-size: 16px; line-height: 1.6; color: var(--ink-2); margin: 0;">
+        Укрнафтогазпрофспілка входить до ФПУ — найбільшого національного
+        профспілкового об'єднання, яке представляє інтереси трудящих
+        у відносинах з урядом і роботодавцями.
+      </p>
+    </div>
+
+  </div>
+</section>
+
+{{ end }}
